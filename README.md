@@ -1,194 +1,316 @@
 # Xtrip: Laser Tripwire Alarm System
 
 ## Overview
-Xtrip: Laser Tripwire Alarm System is an IoT-based security and intrusion detection system designed to protect restricted areas such as stock rooms, private facilities, resorts, and business establishments.
 
-The system uses laser tripwire technology combined with ESP32 and ESP32-CAM modules to detect unauthorized access, trigger alarms, capture visual evidence, and provide real-time monitoring through a web-based application.
+Xtrip is an IoT-based Laser Tripwire Alarm System designed to provide real-time intrusion detection, visual evidence capture, and remote monitoring for restricted areas such as stock rooms, warehouses, resorts, and other secured facilities.
 
-This capstone project was developed as a requirement for the degree of Bachelor of Science in Information Technology at PHINMA University of Iloilo.
-
----
-
-## Features
-
-- Laser-based intrusion detection
-- Real-time alarm notification
-- ESP32-CAM image capture
-- Web-based monitoring system
-- Intrusion event logging
-- Database storage for records
-- Remote system monitoring
-- Arm and disarm system controls
-- Timestamped event recording
-- IoT-enabled communication
+The system utilizes an ESP32 microcontroller, ESP32-CAM module, laser emitter, Light Dependent Resistor (LDR), and a web-based monitoring platform to detect unauthorized access and immediately notify users while recording intrusion events.
 
 ---
 
-## Technologies Used
+## Project Objectives
 
-### Hardware
-- ESP32 Microcontroller
-- ESP32-CAM
-- Laser Module
-- LDR (Light Dependent Resistor)
-- Buzzer
-- Wi-Fi Module
+* Detect unauthorized entry using laser tripwire technology.
+* Capture visual evidence upon intrusion detection.
+* Generate real-time alerts and notifications.
+* Store intrusion records in a database.
+* Provide remote monitoring through a web application.
+* Improve security while maintaining low deployment costs.
 
-### Software
-- Arduino IDE
-- HTML/CSS/JavaScript
-- PHP
-- MySQL Database
+---
+
+## Key Features
+
+### Laser Tripwire Detection
+
+A laser beam is continuously projected toward an LDR sensor. Any interruption in the beam triggers the intrusion detection process.
+
+### Real-Time Alarm System
+
+Upon detection:
+
+* Buzzer alarm is activated.
+* Intrusion event is recorded.
+* Notification is generated.
+
+### Image Capture
+
+The ESP32-CAM captures images when an intrusion is detected, providing visual evidence for investigation.
+
+### Web-Based Monitoring
+
+Users can remotely:
+
+* Monitor system status
+* View intrusion logs
+* Access captured images
+* Arm or disarm the alarm system
+
+### Database Logging
+
+All intrusion events are stored in a centralized database containing:
+
+* Date
+* Time
+* Status
+* Captured Images
 
 ---
 
 ## System Architecture
 
-The system consists of the following modules:
+### Hardware Components
 
-### Intrusion Detection Module
-Uses a laser emitter and LDR sensor to detect beam interruptions caused by intruders.
+* ESP32 Microcontroller
+* ESP32-CAM
+* Laser Module
+* LDR Sensor
+* Buzzer
+* Power Supply
 
-### Alert and Alarm Module
-Triggers a buzzer alarm and sends notifications upon intrusion detection.
+### Software Components
 
-### Visual Evidence Capture Module
-Uses ESP32-CAM to capture images during intrusion events.
+* Arduino IDE
+* PHP
+* MySQL
+* HTML
+* CSS
+* JavaScript
 
-### Web Monitoring Module
-Allows users to monitor logs, captured images, and system status remotely.
+### Architecture Flow
 
-### Database Module
-Stores:
-- Date
-- Time
-- Intrusion Status
-- Captured Images
-
----
-
-## Objectives
-
-The project aims to:
-
-- Develop a low-cost intrusion detection system
-- Improve real-time security monitoring
-- Capture visual evidence of unauthorized access
-- Reduce false alarms
-- Provide remote monitoring capabilities
+```text
+Laser Module → LDR Sensor → ESP32 → ESP32-CAM → Web Server → Database → User Dashboard
+```
 
 ---
 
-## Scope of the System
+## Technologies Used
 
-The system is designed for:
-- Resorts
-- Stock rooms
-- Small businesses
-- Restricted indoor areas
-
-Detection range:
-- Approximately 10–20 meters indoors
-
----
-
-## Researchers
-
-- Julian Jacob P. Casimiro
-- Luzel A. Ambugana
-- Dan Rytchy Magneser
+| Category                | Technology            |
+| ----------------------- | --------------------- |
+| Microcontroller         | ESP32                 |
+| Camera Module           | ESP32-CAM             |
+| Sensor                  | LDR                   |
+| Detection Method        | Laser Tripwire        |
+| Database                | MySQL                 |
+| Backend                 | PHP                   |
+| Frontend                | HTML, CSS, JavaScript |
+| Communication           | Wi-Fi                 |
+| Development Environment | Arduino IDE           |
 
 ---
 
-## Adviser
+## Development Methodology
 
-- Kriz Anthony Zuniega
+The project follows the Iterative Prototyping Software Development Life Cycle (SDLC), allowing continuous improvement through testing, evaluation, and user feedback.
+
+### SDLC Phases
+
+1. Planning and Requirement Analysis
+2. System Design
+3. Development
+4. Testing
+5. Deployment
+6. Maintenance and Support
 
 ---
 
-## School
+## Scope
 
-PHINMA University of Iloilo  
-College of Information Technology Education
+The system is intended for:
+
+* Resorts
+* Warehouses
+* Stock Rooms
+* Offices
+* Small Businesses
+* Restricted Facilities
+
+---
+
+## Limitations
+
+* Performance may be affected by extreme environmental conditions.
+* Advanced facial recognition is not implemented.
+* Continuous HD video streaming is not supported.
+* Requires stable network connectivity for remote monitoring.
 
 ---
 
 ## Installation Guide
 
-### Hardware Setup
-1. Connect the laser module and LDR sensor
-2. Connect ESP32 and ESP32-CAM
-3. Connect buzzer module
-4. Power the system
+### Step 1: Install Required Software
 
-### Software Setup
-1. Install Arduino IDE
-2. Upload ESP32 firmware
-3. Configure Wi-Fi credentials
-4. Import database `.sql` file
-5. Run the web application server
+Download and install:
 
----
+1. XAMPP
+2. Arduino IDE
 
-## How the System Works
+### Step 2: Download the Project
 
-1. The laser continuously points toward the LDR sensor
-2. When the beam is interrupted:
-   - The buzzer alarm activates
-   - ESP32-CAM captures an image
-   - Data is stored in the database
-   - Notification is sent to the user
-3. Users can monitor events using the web application
+1. Download the repository as a ZIP file or clone it from GitHub.
+2. Extract the ZIP file if necessary.
 
----
+### Step 3: Move the Project to XAMPP
 
-## Project Structure
+1. Open your XAMPP installation folder.
+2. Navigate to:
 
 ```text
-Xtrip-Laser-Tripwire-Alarm-System/
-│
-├── Arduino_Code/
-├── ESP32_CAM/
-├── Web_Application/
-├── Database/
-├── Documentation/
-├── Images/
-└── README.md
+xampp/htdocs/
 ```
 
----
+3. Copy the entire `xtrip` folder into `htdocs`.
 
-## Results
+```text
+xampp/
+└── htdocs/
+    └── xtrip/
+```
 
-Based on system testing:
+### Step 4: Start XAMPP
 
-- Detection accuracy reached up to 98.5%
-- Response time achieved below 150ms for local alarms
-- Users reported high satisfaction with system usability and security performance
+1. Open XAMPP Control Panel.
+2. Start Apache.
+3. Start MySQL.
+
+### Step 5: Create the Database
+
+1. Open your browser.
+2. Go to:
+
+```text
+http://localhost/phpmyadmin
+```
+
+3. Click **New**.
+4. Create a database named:
+
+```text
+ltaw
+```
+
+5. Click **Create**.
+
+### Step 6: Import the Database File
+
+1. Select the `ltaw` database.
+2. Click **Import**.
+3. Choose:
+
+```text
+ltawfinal.sql
+```
+
+4. Click **Go**.
+
+### Step 7: Configure the Database Connection
+
+Verify:
+
+```php
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "ltaw";
+```
+
+### Step 8: Open the Web Application
+
+Visit:
+
+```text
+http://localhost/xtrip
+```
+
+### Step 9: Login as Administrator
+
+**Username:** `jikobcsmro@gmail.com`
+
+**Password:** `Jacob123!`
+
+> Note: For security purposes, it is recommended to change the default password after the first login.
+
+### Step 10: Upload the ESP32 DevKit Code
+
+1. Open Arduino IDE.
+2. Open `esp32devkitsketch.ino`.
+3. Select the correct ESP32 board.
+4. Select the correct COM Port.
+5. Click **Upload**.
+
+### Step 11: Upload the ESP32-CAM Code
+
+1. Open Arduino IDE.
+2. Open `esp32camsketch.ino`.
+3. Select **AI Thinker ESP32-CAM**.
+4. Select the correct COM Port.
+5. Click **Upload**.
+
+### Step 12: Connect the Hardware
+
+1. Connect the ESP32 DevKit.
+2. Connect the ESP32-CAM.
+3. Connect the Laser Module.
+4. Connect the LDR Sensor.
+5. Connect the Buzzer.
+
+### Step 13: Test the System
+
+1. Power on the ESP32 devices.
+2. Connect them to Wi-Fi.
+3. Open the dashboard.
+4. Interrupt the laser beam.
+
+Verify that:
+
+* The buzzer activates.
+* An intrusion event is recorded.
+* An image is captured.
+* The event appears on the dashboard.
+
+### Local Access URL
+
+```text
+http://localhost/xtrip
+```
 
 ---
 
 ## Future Improvements
 
-- Live video streaming
-- Mobile application integration
-- Smart home ecosystem support
-- Advanced AI/object detection
-- Improved outdoor environmental resistance
+* Mobile Application Development
+* Live Camera Streaming
+* Advanced Intruder Recognition
+* Cloud Storage Integration
+* Smart Home Integration
+* Enhanced Notification System
+
+---
+
+## Researchers
+
+### Bachelor of Science in Information Technology
+
+**PHINMA University of Iloilo**
+
+**Researchers**
+
+* Julian Jacob P. Casimiro
+* Luzel A. Ambugana
+* Dan Rytchy Magneser
+
+**Adviser**
+
+* Kriz Anthony Zuniega
+
+**Academic Year**
+
+* 2025–2026
 
 ---
 
 ## License
 
-This project is for academic and educational purposes only.
-
----
-
-## Acknowledgment
-
-The researchers would like to thank:
-- PHINMA University of Iloilo
-- College of Information Technology Education
-- Project adviser
-- Family and friends
-- Everyone who supported the development of this capstone project
+This project was developed for academic and research purposes as part of the Bachelor of Science in Information Technology Capstone Project requirements.
